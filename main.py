@@ -34,11 +34,11 @@ for thread in threads:
         url = build_url_to_thread(num)
         urls_list.append(url)
 
-print("Totally found " + str(len(urls_list)) + " WEBM thread(s):")
-for url in urls_list:
-    print(url)
-
 if len(urls_list) > 0:
+    print("Totally found " + str(len(urls_list)) + " WEBM thread(s):")
+    for url in urls_list:
+        print(url)
+
     print("Open...")
     for url in urls_list:
         webbrowser.open(url)
