@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 MAIN_URL = 'https://2ch.hk/b/threads.json'
 BASEURL = 'http://2ch.hk/b/res/'
 INCLUDE_KEYWORDS = r'([Ww][Ee][Bb][Mm])|([Цц][Уу][Ии][Ьь])|([ВвШш][Ее][Бб][Мм])|([Mm][Pp][4])|([Ьь][Зз][4])'
-EXCLUDE_KEYWORDS = r'([Фф][Аа][Пп])|([Ff][Aa][Pp])'
+EXCLUDE_KEYWORDS = r'([Фф][Аа][Пп])|([Ff][Aa][Pp])|([Dd][Aa][Rr][Kk])|([Дд][Аа][Рр][Кк])|([Bb][Ll][Aa][Cc][Kk])'
 
 
 def build_url_to_thread(num):
