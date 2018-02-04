@@ -9,6 +9,8 @@ MAIN_URL = 'https://2ch.hk/b/threads.json'
 BASEURL = 'http://2ch.hk/b/res/'
 INCLUDE_KEYWORDS = r'([Ww][Ee][Bb][Mm])|([Цц][Уу][Ии][Ьь])|([ВвШш][Ее][Бб][Мм])|([Mm][Pp][4])|([Ьь][Зз][4])'
 EXCLUDE_KEYWORDS = r'([Фф][Аа][Пп])|([Ff][Aa][Pp])|([Dd][Aa][Rr][Kk])|([Дд][Аа][Рр][Кк])|([Bb][Ll][Aa][Cc][Kk])'
+MAX_OP_POST_LENGTH = 200
+MIN_POSTS_COUNT = 20
 
 
 def build_url_to_thread(num):
@@ -28,13 +30,13 @@ for thread in threads:
     thread_posts_count = thread['posts_count']
     if re.findall(INCLUDE_KEYWORDS, thread_comment) \
             and not re.findall(EXCLUDE_KEYWORDS, thread_comment) \
-            and thread_posts_count > 20 \
-            and comment_length < 200:
+            and thread_posts_count > MIN_POSTS_COUNT \
+            and comment_length < MAX_OP_POST_LENGTH:
         num = thread['num']
         url = build_url_to_thread(num)
         urls_list.append(url)
 
-if len(urls_list) > 0:
+if len(urls_list):
     print("Totally found " + str(len(urls_list)) + " WEBM thread(s):")
     for url in urls_list:
         print(url)
