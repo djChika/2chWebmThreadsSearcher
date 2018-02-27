@@ -24,16 +24,16 @@ threads = board['threads']
 urls_list = []
 
 for thread in threads:
-    thread_comment = thread['comment']
-    soup = BeautifulSoup(thread_comment, "html.parser").get_text()
-    comment_length = len(soup)
+    op_post = thread['comment']
+    soup = BeautifulSoup(op_post, "html.parser").get_text()
+    op_post_length = len(soup)
     thread_posts_count = thread['posts_count']
-    if re.findall(INCLUDE_KEYWORDS, thread_comment) \
-            and not re.findall(EXCLUDE_KEYWORDS, thread_comment) \
+    if re.findall(INCLUDE_KEYWORDS, op_post) \
+            and not re.findall(EXCLUDE_KEYWORDS, op_post) \
             and thread_posts_count > MIN_POSTS_COUNT \
-            and comment_length < MAX_OP_POST_LENGTH:
-        num = thread['num']
-        url = build_url_to_thread(num)
+            and op_post_length < MAX_OP_POST_LENGTH:
+        thread_num = thread['num']
+        url = build_url_to_thread(thread_num)
         urls_list.append(url)
 
 if len(urls_list):
@@ -45,4 +45,4 @@ if len(urls_list):
     for url in urls_list:
         webbrowser.open(url)
 else:
-    print("No WEBM threads found:(")
+    print("No WEBM threads found :(")
