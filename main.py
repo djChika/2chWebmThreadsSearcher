@@ -7,10 +7,20 @@ from bs4 import BeautifulSoup
 
 MAIN_URL = 'https://2ch.hk/b/threads.json'
 BASEURL = 'http://2ch.hk/b/res/'
-INCLUDE_KEYWORDS = r'([Ww][Ee][Bb][Mm])|([Цц][Уу][Ии][Ьь])|([ВвШш][Ее][Бб][Мм])|([Mm][Pp][4])|([Ьь][Зз][4])'
-EXCLUDE_KEYWORDS = r'([Фф][Аа][Пп])|([Ff][Aa][Pp])|([Dd][Aa][Rr][Kk])|([Дд][Аа][Рр][Кк])|([Bb][Ll][Aa][Cc][Kk])'
+INCLUDE_KEYWORDS = r'([Ww][Ee][Bb][Mm])|' \
+                   r'([Цц][Уу][Ии][Ьь])|' \
+                   r'([ВвШш][Ее][Бб][Мм])|' \
+                   r'([Mm][Pp][4])|' \
+                   r'([Ьь][Зз][4])'
+EXCLUDE_KEYWORDS = r'([Фф][Аа][Пп])|' \
+                   r'([Ff][Aa][Pp])|' \
+                   r'([Dd][Aa][Rr][Kk])|' \
+                   r'([Дд][Аа][Рр][Кк])|' \
+                   r'([Bb][Ll][Aa][Cc][Kk])|' \
+                   r'([Ww][Aa][Rr])|' \
+                   r'([Вв][Аа][Рр])'
 MAX_OP_POST_LENGTH = 200
-MIN_POSTS_COUNT = 20
+MIN_POSTS_COUNT = 30
 
 
 def build_url_to_thread(num):
